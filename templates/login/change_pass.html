@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<form action="" method="post">
+{% csrf_token %}
+<div class="card">
+    <div class="card-header">Password change Form</div>
+    <div class="card-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                {{ pass_forms.as_p }}
+                <button class="btn btn-success" type="submit">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+</form>
+{% endblock %}

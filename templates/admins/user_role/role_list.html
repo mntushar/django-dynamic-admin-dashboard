@@ -1,0 +1,99 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block content %}
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title icon-users"> User Role List</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+    </div>
+
+    <div id="DataTables_Table_2_wrapper" class="dataTables_wrapper no-footer">
+        <div class="datatable-header">
+            <div id="DataTables_Table_2_filter" class="dataTables_filter">
+                <label><span>Filter:</span> <input type="search" class="" placeholder="Type to filter..." aria-controls="DataTables_Table_2" /></label>
+            </div>
+        </div>
+        <div class="datatable-scroll">
+            <table class="table table-bordered table-hover datatable-highlight dataTable no-footer" id="DataTables_Table_2" role="grid" aria-describedby="DataTables_Table_2_info">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc h5" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">Status</th>
+                        <th class="sorting h5" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Read Permission</th>
+                        <th class="sorting h5" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Write Permission</th>
+                        <th class="sorting h5" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Edit Permission</th>
+                        <th class="sorting h5" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Delete Permission</th>
+                        <th class="text-center sorting_disabled h5" rowspan="1" colspan="1" aria-label="Actions" style="width: 100px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for field in contacts %}
+                        {% if field.superuser == False %}
+                            <tr role="row" class="odd">
+                                <td class="sorting_1 h6">{{ field.role }}</td>
+                                {% if field.permission_read == True %}
+                                    <td><span class="badge badge-success">{{ field.permission_read }}</span></td>
+                                 {% else %}
+                                    <td><span class="badge badge-danger">{{ field.permission_read }}</span></td>
+                                {% endif %}
+                                {% if field.permission_write == True %}
+                                    <td><span class="badge badge-success">{{ field.permission_write }}</span></td>
+                                 {% else %}
+                                    <td><span class="badge badge-danger">{{ field.permission_write }}</span></td>
+                                {% endif %}
+                                {% if field.permission_edit == True %}
+                                    <td><span class="badge badge-success">{{ field.permission_edit }}</span></td>
+                                 {% else %}
+                                    <td><span class="badge badge-danger">{{ field.permission_edit }}</span></td>
+                                {% endif %}
+                                {% if field.permission_delete == True %}
+                                    <td><span class="badge badge-success">{{ field.permission_delete }}</span></td>
+                                 {% else %}
+                                    <td><span class="badge badge-danger">{{ field.permission_delete }}</span></td>
+                                {% endif %}
+                                <td class="text-center">
+                                    <div class="list-icons">
+                                    {% if user.employinfo.designation.permission_edit == True%}
+                                        <a href="{% url 'user-role-edit' field.id %}" class="list-icons-item" data-popup="tooltip" title="" data-container="body" data-original-title="Edit">
+                                            <i class="icon-pencil7"></i>
+                                        </a>
+                                    {% endif %}
+
+                                    </div>
+                                </td>
+
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="datatable-footer">
+            <div class="dataTables_info" id="DataTables_Table_2_info" role="status" aria-live="polite">Showing {{ contacts.number }} of {{ contacts.paginator.num_pages }} entries</div>
+            <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_2_paginate">
+            {% if contacts.has_previous %}
+                <a class="paginate_button" href="?page={{ contacts.previous_page_number }}" aria-controls="DataTables_Table_2" data-dt-idx="0" tabindex="0" id="DataTables_Table_2_previous">←</a>
+            {% endif %}
+            {% for i in paginator.page_range %}
+                    {% if contacts.number == i %}
+                        <span><a class="paginate_button current" href="?page={{ i }}" aria-controls="DataTables_Table_2" data-dt-idx="1" tabindex="0">{{i}}</a></span>
+                    {% else %}
+                        <span><a class="paginate_button" href="?page={{ i }}" aria-controls="DataTables_Table_2" data-dt-idx="2" tabindex="0">{{i}}</a></span>
+                    {% endif %}
+            {% endfor %}
+            {% if contacts.has_next %}
+                    <a class="paginate_button next" href="?page={{ contacts.next_page_number }}" aria-controls="DataTables_Table_2" data-dt-idx="3" tabindex="0" id="DataTables_Table_2_next">→</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

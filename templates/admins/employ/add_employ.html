@@ -1,0 +1,125 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block content %}
+<div class="card">
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        <div class="card-header">
+            <strong class="icon-user"> User Basic Information</strong>
+            <hr class="divider" />
+        </div>
+
+        <div class="card-body">
+            <div class="form-horizontal">
+                {% for field in employ_basic_forms %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>{{ field.label_tag }}</h6></label>
+                    <div class="col-md-9">{{ field }}</div>
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                </div>
+                {% endfor %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Select Employ Designation:</h6></label>
+                    {% for field in user_role %}
+                    <div class="col-md-9">{{ field }}</div>
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card-header">
+            <strong class="icon-book"> User Academic Information</strong>
+            <hr class="divider" />
+        </div>
+        <div class="card-body">
+            <div class="card-body">
+                <div class="form-horizontal">
+                    <div id="form_set">
+                        {{ employAcademicFormSet.management_form }}
+                        {% for form in employAcademicFormSet %} 
+                        {% for field in form.visible_fields %}
+                        <div class="no_error">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="text-input"><h6>{{ field.label_tag }}</h6></label>
+                                <div class="col-md-9">{{ field }}</div>
+                                <label class="col-md-3 col-form-label" for="text-input"></label>
+                                <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                            </div>
+                        </div>
+
+                        {% endfor %} 
+                        {% endfor %}
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3"></div>
+                        <input type="button" class="ml-2 btn btn-outline-success btn-sm" value="Add More Form" id="add_more" />
+                    </div>
+
+                    <div id="empty_form" style="display: none;">
+                        <tbody class="no_error">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="text-input"><h6></h6></label>
+                                <div class="col-md-9">{{ employAcademicFormSet.empty_form }}</div>
+                            </div>
+                        </tbody>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-header">
+            <strong class="icon-home"> User Home Information</strong>
+            <hr class="divider" />
+        </div>
+        <div class="card-body">
+            <div class="form-horizontal">
+                {% for field in employ_address_forms %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>{{ field.label_tag }}</h6></label>
+                    <div class="col-md-9">{{ field }}</div>
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card-header">
+            <strong class="icon-key"> Employ User Password</strong>
+            <hr class="divider" />
+        </div>
+        <div class="card-body">
+            <div class="form-horizontal">
+                {% for field in employ_password_forms %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>{{ field.label_tag }}</h6></label>
+                    <div class="col-md-9">{{ field }}</div>
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                </div>
+                {% endfor %} 
+                {% if errors %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">* {{ errors }}</div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<script>
+    $('#add_more').click(function() {
+	var form_idx = $('#id_form-TOTAL_FORMS').val();
+	$('#form_set').append($('#empty_form').html().replace(/__prefix__/g, form_idx));
+	$('#id_form-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+});
+</script>
+
+{% endblock %}

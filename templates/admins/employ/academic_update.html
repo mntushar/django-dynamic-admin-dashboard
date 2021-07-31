@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block content %}
+<div class="card">
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        <div class="card-header">
+            <strong class="icon-book"> User Academic Information</strong>
+            <hr class="divider" />
+        </div>
+        <div class="card-body">
+            <div class="card-body">
+                <div class="form-horizontal">
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Degree: </h6></label>
+                        <div class="col-md-9">{{ acedmic_info_form.degree }}</div>
+                        <label class="col-md-3 col-form-label" for="text-input"></label>
+                        <div class="col-md-9 text-danger">{{ acedmic_info_form.degree.errors.as_text  }}</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Passing Institution Name: </h6></label>
+                        <div class="col-md-9">{{ acedmic_info_form.last_passing_institution_name }}</div>
+                        <label class="col-md-3 col-form-label" for="text-input"></label>
+                        <div class="col-md-9 text-danger">{{ acedmic_info_form.last_passing_institution_name.errors.as_text  }}</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Passing Year: </h6></label>
+                        <div class="col-md-9">{{ acedmic_info_form.last_passing_year }}</div>
+                        <label class="col-md-3 col-form-label" for="text-input"></label>
+                        <div class="col-md-9 text-danger">{{ acedmic_info_form.last_passing_year.errors.as_text  }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

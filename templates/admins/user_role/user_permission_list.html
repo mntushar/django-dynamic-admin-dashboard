@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <!-- List with badges -->
+    <div class="card">
+        <div class="card-header header-elements-inline">
+            <h3 class="card-title icon-collaboration h3"> User Menu Permission List</h3>
+            <div class="header-elements">
+                <div class="list-icons">
+                    <a class="list-icons-item" data-action="collapse"></a>
+                    <a class="list-icons-item" data-action="reload"></a>
+                    <a class="list-icons-item" data-action="remove"></a>
+                </div>
+            </div>
+        </div>
+
+        <ul class="media-list media-list-linked">
+            <li class="media bg-info font-weight-semibold py-2 pl-5 justify-content-between">
+                <div class="h6 pl-5">User Role Name</div>
+                <div class="h6 mr-5 pr-5">Action</div>
+            </li>
+            {% for user, permission in zip_user %}
+            {% if permission %}
+                {% if user.superuser == False %}
+                    <li>
+                        <a href="#" class="media">
+                            <i class="icon-checkmark3 text-success ml-5 pr-3"></i>
+                            <div class="media-body">
+                                <div class="media-title font-weight-semibold">{{user}}</div>
+                            </div>
+                            {% if request.user.employinfo.designation.permission_delete == True %}
+                            <div class="align-self-center ml-3">
+                                <h5><span onclick="window.location='{% url 'menu-remove' user.id %}'" class="badge badge-success btn mr-5">Click To View Permission</span></h5>
+                            </div>
+                            {% endif %}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- /list with badges -->
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block content %}
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h3 class="card-title icon-users h3"> User Menu Permission</h3>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+    </div>
+    <form class="form-horizontal" action="" method="post">
+    {% csrf_token %}
+    <div id="DataTables_Table_2_wrapper" class="dataTables_wrapper no-footer">
+        <div class="datatable-header">
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label"><span><h5>Select User Role For Menu Permission:</h5></span></label>
+                <div class="col-md-5">{{ user_role.designation_selection }}</div>
+            </div>
+        </div>
+        <div class="datatable-scroll">
+            <table class="table table-bordered table-hover datatable-highlight dataTable no-footer" id="DataTables_Table_2" role="grid" aria-describedby="DataTables_Table_2_info">
+                <thead>
+                    <tr role="row" class="bg-teal-400">
+                        <th class="sorting text-center h4" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Sidebar Title</th>
+                        <th class="sorting text-center h4" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Sidebar Title Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ sbtitle_form.management_form }}
+                    {% for field in sbtitle_form %}
+                        <tr role="row" class="odd">
+                            <td class="sorting_1 text-center"><h6>{{ field.sb_title.value }} {{ field.sb_permission }}<p class="text-danger">{{ field.errors.as_text }}</p></h6></td>
+                            <td class="text-center">
+                                {{ sbitleelement_form.management_form }}
+                                {% for element in sbitleelement_form %}
+                                    {% if element.initial.sbtitle_id_id == field.initial.id %}
+                                        <h6>{{ element.el_title.value }} {{ element.el_permission }}</h6>
+                                    {% endif %}
+                                    <p class="text-danger">{{ element.errors.as_text }}</p>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-lg btn-success" type="submit">Save</button>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}

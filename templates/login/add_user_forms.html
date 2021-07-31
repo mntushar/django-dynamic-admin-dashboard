@@ -1,0 +1,87 @@
+{% extends 'base/base.html' %} {% load static %} {% block content %}
+<div class="card">
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        <div class="card-header">
+            <strong class="icon-user"> User Basic Information</strong>
+            <hr class="divider" />
+        </div>
+
+        <div class="card-body">
+            <div class="form-horizontal">
+                {% for field in user_basic_forms %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>{{ field.label_tag }}</h6></label>
+                    <div class="col-md-9">{{ field }}</div>
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card-header">
+            <strong class="icon-book"> User Academic Information</strong>
+            <hr class="divider" />
+        </div>
+        <div class="card-body">
+            <div class="card-body">
+                <div class="form-horizontal">
+                    {% for field in user_academic_forms %}
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input"><h6>{{ field.label_tag }}</h6></label>
+                        <div class="col-md-9">{{ field }}</div>
+                        <label class="col-md-3 col-form-label" for="text-input"></label>
+                        <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card-header">
+            <strong class="icon-home"> User Home Information</strong>
+            <hr class="divider" />
+        </div>
+        <div class="card-body">
+            <div class="form-horizontal">
+                {% for field in user_address_forms %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>{{ field.label_tag }}</h6></label>
+                    <div class="col-md-9">{{ field }}</div>
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card-header">
+            <strong class="icon-key"> User Password</strong>
+            <hr class="divider" />
+        </div>
+        <div class="card-body">
+            <div class="form-horizontal">
+                {% for field in user_password_forms %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>{{ field.label_tag }}</h6></label>
+                    <div class="col-md-9">{{ field }}</div>
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">{{ field.errors.as_text  }}</div>
+                </div>
+                {% endfor %}
+                {% if errors %}
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">* {{ errors }}</div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

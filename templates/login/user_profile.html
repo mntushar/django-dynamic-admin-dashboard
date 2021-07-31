@@ -1,0 +1,571 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block content %}
+<!-- Theme CSS -->
+<link href="{% static "profile/css/theme.min.css" %}" rel="stylesheet" type="text/css">
+<!-- /Theme CSS -->
+<div class="tushar">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel widget light-widget panel-bd-top">
+                <div class="panel-heading no-title"></div>
+                <div class="panel-body">
+                    <div class="text-center vd_info-parent"><img alt="example image" src="{% static "profile/img/avatar/big.jpg" %}"/></div>
+                    <h2 class="font-semibold mgbt-xs-5">{{ user_profile.uses_basic.name }}</h2>
+                    <h4>Owner at Our Company, Inc.</h4>
+                    <p>Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                    <div class="mgtp-20">
+                        <table class="table table-striped table-hover">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 60%;">Status</td>
+                                    <td><span class="label label-success">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td>User Rating</td>
+                                    <td>
+                                        <i class="fa fa-star vd_yellow fa-fw"></i><i class="fa fa-star vd_yellow fa-fw"></i><i class="fa fa-star vd_yellow fa-fw"></i><i class="fa fa-star vd_yellow fa-fw"></i>
+                                        <i class="fa fa-star vd_yellow fa-fw"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Member Since</td>
+                                    <td>Jan 07, 2014</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-sm-9">
+            <div class="tabs widget">
+                <ul class="nav nav-tabs widget mb-0">
+                    <li class="active">
+                        <a data-toggle="tab" href="#profile-tab">
+                            Profile <span class="menu-active"><i class="fa fa-caret-up"></i></span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <div class="tab-content">
+                    <div id="profile-tab" class="tab-pane active">
+                        <div class="pd-20">
+                            
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> Your Basic Information</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mgbt-s-0">
+                                        <label class="h6 pl-5 ml-1">Name :</label>
+                                        <div class="h6 ml-5">Mariah</div>
+                                        <!-- col-sm-10 -->
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="pd-10" />
+                            <div class="row">
+                                <div class="col-sm-7 mgbt-xs-20">
+                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
+                                    <div class="content-list content-menu">
+                                        <ul class="list-wrapper">
+                                            <li class="mgbt-xs-10">
+                                                <span class="menu-icon vd_green"><i class="fa fa-circle-o"></i></span>
+                                                <span class="menu-text">
+                                                    <a href="http://www.venmond.com/">Owner</a> at <a href="http://www.venmond.com/">Vendroid Ltd.</a> <span class="menu-info"><span class="menu-date"> March 2013 ~ Now</span></span>
+                                                </span>
+                                            </li>
+                                            <li class="mgbt-xs-10">
+                                                <span class="menu-icon vd_grey"><i class="fa fa-circle-o"></i></span>
+                                                <span class="menu-text">
+                                                    <a href="http://www.venmond.com/">CEO</a> at <a href="http://www.venmond.com/">Mc. Dondon</a> <span class="menu-info"><span class="menu-date"> March 2011 ~ February 2013</span></span>
+                                                </span>
+                                            </li>
+                                            <li class="mgbt-xs-10">
+                                                <span class="menu-icon vd_grey"><i class="fa fa-circle-o"></i></span>
+                                                <span class="menu-text">
+                                                    <a href="http://www.venmond.com/">Web Designer</a> at <a href="http://www.venmond.com/">Web Design Company Ltd.</a>
+                                                    <span class="menu-info"><span class="menu-date"> March 2010 ~ February 2011</span></span>
+                                                </span>
+                                            </li>
+                                            <li class="mgbt-xs-10">
+                                                <span class="menu-icon vd_grey"><i class="fa fa-circle-o"></i></span>
+                                                <span class="menu-text">
+                                                    <a href="http://www.venmond.com/">Sales</a> at <a href="http://www.venmond.com/">Sales Company Ltd.</a>
+                                                    <span class="menu-info"><span class="menu-date"> March 2009 ~ February 2010</span></span>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> EDUCATION</h3>
+                                    <div class="content-list content-menu">
+                                        <ul class="list-wrapper">
+                                            <li class="mgbt-xs-10">
+                                                <span class="menu-icon vd_green"><i class="fa fa-circle-o"></i></span>
+                                                <span class="menu-text">
+                                                    Bachelor's degree, E-Commerce/Electronic Commerce at <a href="http://www.venmond.com/">UCLA</a> <span class="menu-info"><span class="menu-date"> August 2003 ~ July 2008</span></span>
+                                                </span>
+                                            </li>
+                                            <li class="mgbt-xs-10">
+                                                <span class="menu-icon vd_grey"><i class="fa fa-circle-o"></i></span>
+                                                <span class="menu-text">
+                                                    Student at <a href="http://www.venmond.com/">Web Design Education</a> <span class="menu-info"><span class="menu-date"> March 2006 ~ February 2007</span></span>
+                                                </span>
+                                            </li>
+                                            <li class="mgbt-xs-10">
+                                                <span class="menu-icon vd_grey"><i class="fa fa-circle-o"></i></span>
+                                                <span class="menu-text">
+                                                    Student at <a href="http://www.venmond.com/">St. Louis High School</a> <span class="menu-info"><span class="menu-date"> August 2000 ~ July 2003 </span></span>
+                                                </span>
+                                            </li>
+                                            <li class="mgbt-xs-10">
+                                                <span class="menu-icon vd_grey"><i class="fa fa-circle-o"></i></span>
+                                                <span class="menu-text">
+                                                    Student at <a href="http://www.venmond.com/">St. Monica Junior High School</a> <span class="menu-info"><span class="menu-date"> August 1998 ~ July 2000</span></span>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- pd-20 -->
+                    </div>
+                    <!-- home-tab -->
+
+                    <div id="projects-tab" class="tab-pane">
+                        <div class="pd-20">
+                            <div class="vd_info tr">
+                                <a class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-plus append-icon"></i> Add Project </a>
+                            </div>
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-bolt mgr-10 profile-icon"></i> PROJECTS</h3>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Logo / Photos</th>
+                                        <th>Clients</th>
+                                        <th>Start Date</th>
+                                        <th>Status</th>
+                                        <th>Revenue</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><img height="80" src="img/avatar/avatar.jpg" alt="example image" /></td>
+                                        <td>Zoe Corp</td>
+                                        <td class="center">2010/02/03</td>
+                                        <td class="center">
+                                            <span class="label label-success">Finish</span>
+                                        </td>
+                                        <td class="center"><strong>$ 250</strong></td>
+                                        <td class="menu-action rounded-btn">
+                                            <a class="btn menu-icon vd_bg-green" data-placement="top" data-toggle="tooltip" data-original-title="view">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-yellow" data-placement="top" data-toggle="tooltip" data-original-title="edit">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-red" data-placement="top" data-toggle="tooltip" data-original-title="delete">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><img height="80" src="img/avatar/avatar-2.jpg" alt="example image" /></td>
+                                        <td>Zoe Corp</td>
+                                        <td class="center">2010/02/03</td>
+                                        <td class="center">
+                                            <span class="label label-success">Finish</span>
+                                        </td>
+                                        <td class="center"><strong>$ 250</strong></td>
+                                        <td class="menu-action rounded-btn">
+                                            <a class="btn menu-icon vd_bg-green" data-placement="top" data-toggle="tooltip" data-original-title="view">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-yellow" data-placement="top" data-toggle="tooltip" data-original-title="edit">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-red" data-placement="top" data-toggle="tooltip" data-original-title="delete">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><img height="80" src="img/avatar/avatar-3.jpg" alt="example image" /></td>
+                                        <td>Zoe Corp</td>
+                                        <td class="center">2010/02/03</td>
+                                        <td class="center">
+                                            <span class="label label-success">Finish</span>
+                                        </td>
+                                        <td class="center"><strong>$ 250</strong></td>
+                                        <td class="menu-action rounded-btn">
+                                            <a class="btn menu-icon vd_bg-green" data-placement="top" data-toggle="tooltip" data-original-title="view">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-yellow" data-placement="top" data-toggle="tooltip" data-original-title="edit">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-red" data-placement="top" data-toggle="tooltip" data-original-title="delete">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><img height="80" src="img/avatar/avatar-4.jpg" alt="example image" /></td>
+                                        <td>Zoe Corp</td>
+                                        <td class="center">2010/02/03</td>
+                                        <td class="center">
+                                            <span class="label label-success">Finish</span>
+                                        </td>
+                                        <td class="center"><strong>$ 250</strong></td>
+                                        <td class="menu-action rounded-btn">
+                                            <a class="btn menu-icon vd_bg-green" data-placement="top" data-toggle="tooltip" data-original-title="view">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-yellow" data-placement="top" data-toggle="tooltip" data-original-title="edit">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-red" data-placement="top" data-toggle="tooltip" data-original-title="delete">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><img height="80" src="img/avatar/avatar-5.jpg" alt="example image" /></td>
+                                        <td>Zoe Corp</td>
+                                        <td class="center">2010/02/03</td>
+                                        <td class="center">
+                                            <span class="label label-success">Finish</span>
+                                        </td>
+                                        <td class="center"><strong>$ 250</strong></td>
+                                        <td class="menu-action rounded-btn">
+                                            <a class="btn menu-icon vd_bg-green" data-placement="top" data-toggle="tooltip" data-original-title="view">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-yellow" data-placement="top" data-toggle="tooltip" data-original-title="edit">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a class="btn menu-icon vd_bg-red" data-placement="top" data-toggle="tooltip" data-original-title="delete">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class=""></div>
+                        </div>
+                    </div>
+
+                    <div id="photos-tab" class="tab-pane">
+                        <div class="pd-20">
+                            <div class="vd_info tr">
+                                <a class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-plus append-icon"></i> Add Photo </a>
+                            </div>
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-picture-o mgr-10 profile-icon"></i> PHOTOS</h3>
+                            <ul id="filters" class="nav nav-pills">
+                                <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
+                                <li><a href="#photos-2" data-filter=".filter-1">Photos of You</a></li>
+                                <li><a href="#photos-3" data-filter=".filter-2">Scenery</a></li>
+                                <li><a href="#photos-4" data-filter=".filter-3">Vacation</a></li>
+                            </ul>
+                            <br />
+                            <div class="isotope js-isotope vd_gallery" style="position: relative; height: 3000px;">
+                                <div class="gallery-item filter-1" style="position: absolute; left: 0px; top: 0px;">
+                                    <a href="img/photos/01.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/01.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Felicious</span> de louis amigos</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/01.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-2" style="position: absolute; left: 0px; top: 200px;">
+                                    <a href="img/photos/03.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/03.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Sola</span> Aprecios</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/03.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="gallery-item filter-2" style="position: absolute; left: 0px; top: 400px;">
+                                    <a href="img/photos/08.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/08.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Lorem</span> ipsum</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/08.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-3" style="position: absolute; left: 0px; top: 600px;">
+                                    <a href="img/photos/15.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/15.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Doler</span> sit amet</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/15.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-1" style="position: absolute; left: 0px; top: 800px;">
+                                    <a href="img/photos/02.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/02.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Gracias</span> mundo</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/02.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-2" style="position: absolute; left: 0px; top: 1000px;">
+                                    <a href="img/photos/06.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/06.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Solero</span> dorona</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/06.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-3" style="position: absolute; left: 0px; top: 1200px;">
+                                    <a href="img/photos/08.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/08.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Weinto</span> grametto</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/08.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-2" style="position: absolute; left: 0px; top: 1400px;">
+                                    <a href="img/photos/04.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/04.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Sara</span> he yaso</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/04.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-1" style="position: absolute; left: 0px; top: 1600px;">
+                                    <a href="img/photos/10.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/10.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Numero</span> uno</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/10.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="gallery-item filter-3" style="position: absolute; left: 0px; top: 1800px;">
+                                    <a href="img/photos/09.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/09.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Beon</span> dukim</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/09.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-2" style="position: absolute; left: 0px; top: 2000px;">
+                                    <a href="img/photos/01.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/01.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Gretia</span> de louis amigos</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/01.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-1" style="position: absolute; left: 0px; top: 2200px;">
+                                    <a href="img/photos/11.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/11.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Title</span> de koko</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/11.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-1" style="position: absolute; left: 0px; top: 2400px;">
+                                    <a href="img/photos/12.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/12.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Some</span> random text</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/12.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-3" style="position: absolute; left: 0px; top: 2600px;">
+                                    <a href="img/photos/13.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/13.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Soleram</span> drago</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/13.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-item filter-2" style="position: absolute; left: 0px; top: 2800px;">
+                                    <a href="img/photos/14.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="img/photos/14.jpg" />
+                                        <div class="bg-cover"></div>
+                                    </a>
+                                    <div class="vd_info">
+                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Gretia</span> de louis</h3>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/14.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
+                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- pd-20 -->
+                    </div>
+                    <div id="groups-tab" class="tab-pane">
+                        <div class="pd-20">
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-leaf mgr-10 profile-icon"></i> GROUPS</h3>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="content-list content-large menu-action-right">
+                                        <ul class="list-wrapper pd-lr-15">
+                                            <li>
+                                                <div class="menu-icon">
+                                                    <a href="#"><img src="img/groups/logo-01.jpg" alt="example image" /></a>
+                                                </div>
+                                                <div class="menu-text">
+                                                    <h4 class="mgbt-xs-0"><a href="#">Groupis Group</a></h4>
+                                                    <div class="menu-info">
+                                                        <span class="menu-date"> 3467 members </span>
+                                                    </div>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidtation ullamco...</p>
+                                                </div>
+                                                <div class="menu-action">
+                                                    <div data-placement="bottom" data-toggle="tooltip" data-original-title="Leave Group" class="menu-action-icon vd_red">
+                                                        <i class="fa fa-times"></i>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- list-wrapper -->
+                                    </div>
+                                    <!-- content-list -->
+                                </div>
+                                <!-- col-xs-12 col-sm-6 -->
+
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="content-list content-large menu-action-right">
+                                        <ul class="list-wrapper pd-lr-15">
+                                            <li>
+                                                <div class="menu-icon">
+                                                    <a href="#"><img src="img/groups/logo-02.jpg" alt="example image" /></a>
+                                                </div>
+                                                <div class="menu-text">
+                                                    <h4 class="mgbt-xs-0"><a href="#">Ztormin Community</a></h4>
+                                                    <div class="menu-info">
+                                                        <span class="menu-date"> 12597 members </span>
+                                                    </div>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidtation ullamco...</p>
+                                                </div>
+                                                <div class="menu-action">
+                                                    <div data-placement="bottom" data-toggle="tooltip" data-original-title="Leave Group" class="menu-action-icon vd_red">
+                                                        <i class="fa fa-times"></i>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- list-wrapper -->
+                                    </div>
+                                    <!-- content-list -->
+                                </div>
+                                <!-- col-xs-12 col-sm-6 -->
+
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="content-list content-large menu-action-right">
+                                        <ul class="list-wrapper pd-lr-15">
+                                            <li>
+                                                <div class="menu-icon">
+                                                    <a href="#"><img src="img/groups/logo-03.jpg" alt="example image" /></a>
+                                                </div>
+                                                <div class="menu-text">
+                                                    <h4 class="mgbt-xs-0"><a href="#">Book Lovers</a></h4>
+                                                    <div class="menu-info">
+                                                        <span class="menu-date"> 67 members </span>
+                                                    </div>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidtation ullamco...</p>
+                                                </div>
+                                                <div class="menu-action">
+                                                    <div data-placement="bottom" data-toggle="tooltip" data-original-title="Leave Group" class="menu-action-icon vd_red">
+                                                        <i class="fa fa-times"></i>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- list-wrapper -->
+                                    </div>
+                                    <!-- content-list -->
+                                </div>
+                                <!-- col-xs-12 col-sm-6 -->
+                            </div>
+                            <!-- row -->
+                        </div>
+                        <!-- pd-20 -->
+                    </div>
+                    <!-- groups tab -->
+                </div>
+                <!-- tab-content -->
+            </div>
+            <!-- tabs-widget -->
+        </div>
+    </div>
+    <!-- row -->
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block content %}
+<div class="card">
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        <div class="card-header">
+            <strong class="icon-user"> Create New User Role </strong>
+            <hr class="divider" />
+        </div>
+
+        <div class="card-body">
+            <div class="form-horizontal">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h5>Enter new role name:</h5></label>
+                    <div class="col-md-9">{{ role_forms.role }}</div>
+                    <label class="col-md-3 col-form-label" for="text-input"></label>
+                    <div class="col-md-9 text-danger">{{ role_forms.role.errors.as_text  }}</div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h5>Select user role permissions:</h5></label>
+                    <div class="col-md-9 pt-2">
+                            <h6>
+                                {{ role_forms.permission_read }} Read permission &emsp;
+                                {{ role_forms.permission_edit }} Edit permission &emsp;
+                                {{ role_forms.permission_write }} Write permission &emsp;
+                                {{ role_forms.permission_delete }} Delete permission &emsp;
+                            </h6>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

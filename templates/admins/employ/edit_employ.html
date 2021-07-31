@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %} 
+{% block content %}
+<div class="card">
+        <div class="card-header">
+            <strong class="icon-user"> User Basic Information</strong>
+            <hr class="divider" />
+             <a href="{% url 'basic-edit-employ' profile.user_basic.id %}" class="settings float-right" title="Edit" data-toggle="tooltip"><i class="icon-pencil7"></i></a>
+        </div>
+
+        <div class="card-body">
+            <div class="form-horizontal">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Name:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_basic.name }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Gender:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_basic.gender }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Date of Birth:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_basic.date_of_birth }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Phone Number:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_basic.phone_number }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Email:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_basic.email }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Designation:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.designation }}" readonly/>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-header">
+            <strong class="icon-book"> User Academic Information</strong>
+            <hr class="divider" />
+        </div>
+        <div class="card-body">
+        {% for field in academic_info %}
+            <a href="{% url 'acedmic-edit-employ' field.id %}" class="settings float-right" title="Edit" data-toggle="tooltip"><i class="icon-pencil7"></i></a>
+            <br>
+            <div class="card-body">
+                 <div class="form-horizontal">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Degree:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ field.degree }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Passing Institution Name:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ field.last_passing_institution_name }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Last Passing Year:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ field.last_passing_year }}" readonly/>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+
+        <div class="card-header">
+            <strong class="icon-home"> User Home Information</strong>
+            <hr class="divider" />
+            <a href="{% url 'address-edit-employ' profile.user_address.id %}" class="settings float-right" title="Edit" data-toggle="tooltip"><i class="icon-pencil7"></i></a>
+        </div>
+        <div class="card-body">
+            <div class="form-horizontal">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ House Number:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_address.house_no }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Village Name:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_address.village_name }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Post Office Name:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_address.post_office }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ Thana Name:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_address.thana_name }}" readonly/>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><h6>Employ District Name:</h6></label>
+                    <input class="col-md-9 form-control form-control-lg" value="{{ profile.user_address.district_name }}" readonly/>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

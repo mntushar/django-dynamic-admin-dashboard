@@ -1,0 +1,19 @@
+{% include "base/header.html" %} 
+{% load static %} 
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 m-auto mt-5 pt-5">
+            <h1 class="text-center">Online schol</h1>
+            <br>
+            <h2 class="text-center">Welcome to online school {{user_info.uses_basic.name}}</h2>
+            <br>
+            <h3 class="text-center">Your Registration Is Successful...</h3>
+            <div class="col text-center">
+                <a href="{% url 'home-deshboard' %}" class="btn btn-primary active mt-3 text-center" role="button">Sign In Now!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

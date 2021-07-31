@@ -1,0 +1,339 @@
+{% load static %}
+
+
+<!-- Main sidebar -->
+<div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+	<!-- Sidebar mobile toggler -->
+	<div class="sidebar-mobile-toggler text-center">
+				<a href="#" class="sidebar-mobile-main-toggle">
+					<i class="icon-arrow-left8"></i>
+				</a>
+				Navigation
+				<a href="#" class="sidebar-mobile-expand">
+					<i class="icon-screen-full"></i>
+					<i class="icon-screen-normal"></i>
+				</a>
+	</div>
+	<!-- /sidebar mobile toggler -->
+
+
+	<!-- Sidebar content -->
+	<div class="sidebar-content">
+
+				<!-- User menu -->
+				<div class="sidebar-user">
+					<div class="card-body">
+					{% if user.is_authenticated %}
+						<div class="media">
+							<div class="mr-3">
+								<a href="#"><img src="{% static "global_assets/images/demo/users/face11.jpg" %}" width="38" height="38" class="rounded-circle" alt=""></a>
+							</div>
+
+							<div class="media-body">
+								<div class="media-title font-weight-semibold">{{ user.first_name }}</div>
+								<div class="font-size-xs opacity-50">
+									<i class="icon-pin font-size-sm"></i> &nbsp;Santa Ana, CA
+								</div>
+							</div>
+
+							<div class="ml-3 align-self-center">
+								<a href="#" class="text-white"><i class="icon-cog3"></i></a>
+							</div>
+						</div>
+					{% endif %}
+					</div>
+				</div>
+				<!-- /user menu -->
+
+
+				<!-- Main navigation -->
+				<div class="card card-sidebar-mobile">
+					<ul class="nav nav-sidebar" data-nav-type="accordion">
+					{% if user.is_authenticated %}
+						<!-- Main -->
+						<li class="nav-item">
+							<a href="{% url 'main-url' %}" class="nav-link active">
+								<i class="icon-home4"></i>
+								<span>
+									Dashboard
+								</span>
+							</a>
+						</li>
+						
+						<!--all authenticate sidbar start-->
+						<!--all permission sidebar start-->
+						<!--admin permission sidebar-->
+						{% with section=request.session.dynamic_sidebar.section title=request.session.dynamic_sidebar.title element=request.session.dynamic_sidebar.element %}
+							{% for key, value in section.items %}
+								{% for key_t, value_t in title.items %}
+									{% if value_t.section_id == key|add:"0" %}
+										<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">{{value.title}}</div> <i class="icon-menu" title="Tables"></i></li>
+								{{ "<!--" }}
+									{% endif %}
+								{% endfor %}
+								{{ "<!--" }}
+								{{ "-->" }}
+								{% for key_t, value_t in title.items %}
+									{% if value_t.section_id == key|add:"0" %}
+										<li class="nav-item nav-item-submenu">
+										<a href="#" class="nav-link"><i class="{{value_t.icone}}"></i> <span>{{value_t.title}}</span></a>
+										<ul class="nav nav-group-sub" data-submenu-title="Employ">
+										{% for key_e, value_e in element.items %}
+											{% if value_e.title_id == key_t|add:"0" %}
+												<li class="nav-item"><a href="{{value_e.url}}" class="nav-link">{{value_e.title}}</a></li>
+											{% endif %}
+										{% endfor %}
+										</ul>
+									{% endif %}
+								{% endfor %}
+								</li>
+							{% endfor %}
+						{% endwith %}
+						<!-- /main -->
+
+
+						<!--student sidbar start-->
+						<!-- Tables -->
+						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Tables</div> <i class="icon-menu" title="Tables"></i></li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-table2"></i> <span>Basic tables</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Basic tables">
+								<li class="nav-item"><a href="table_basic.html" class="nav-link">Basic examples</a></li>
+								<li class="nav-item"><a href="table_sizing.html" class="nav-link">Table sizing</a></li>
+								<li class="nav-item"><a href="table_borders.html" class="nav-link">Table borders</a></li>
+								<li class="nav-item"><a href="table_styling.html" class="nav-link">Table styling</a></li>
+								<li class="nav-item"><a href="table_elements.html" class="nav-link">Table elements</a></li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-grid7"></i> <span>Data tables</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Data tables">
+								<li class="nav-item"><a href="datatable_basic.html" class="nav-link">Basic initialization</a></li>
+								<li class="nav-item"><a href="datatable_styling.html" class="nav-link">Basic styling</a></li>
+								<li class="nav-item"><a href="datatable_advanced.html" class="nav-link">Advanced examples</a></li>
+								<li class="nav-item"><a href="datatable_sorting.html" class="nav-link">Sorting options</a></li>
+								<li class="nav-item"><a href="datatable_api.html" class="nav-link">Using API</a></li>
+								<li class="nav-item"><a href="datatable_data_sources.html" class="nav-link">Data sources</a></li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-alignment-unalign"></i> <span>Data tables extensions</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Data tables extensions">
+								<li class="nav-item"><a href="datatable_extension_reorder.html" class="nav-link">Columns reorder</a></li>
+								<li class="nav-item"><a href="datatable_extension_row_reorder.html" class="nav-link">Row reorder</a></li>
+								<li class="nav-item"><a href="datatable_extension_fixed_columns.html" class="nav-link">Fixed columns</a></li>
+								<li class="nav-item"><a href="datatable_extension_fixed_header.html" class="nav-link">Fixed header</a></li>
+								<li class="nav-item"><a href="datatable_extension_autofill.html" class="nav-link">Auto fill</a></li>
+								<li class="nav-item"><a href="datatable_extension_key_table.html" class="nav-link">Key table</a></li>
+								<li class="nav-item"><a href="datatable_extension_scroller.html" class="nav-link">Scroller</a></li>
+								<li class="nav-item"><a href="datatable_extension_select.html" class="nav-link">Select</a></li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Buttons</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="datatable_extension_buttons_init.html" class="nav-link">Initialization</a></li>
+										<li class="nav-item"><a href="datatable_extension_buttons_flash.html" class="nav-link">Flash buttons</a></li>
+										<li class="nav-item"><a href="datatable_extension_buttons_print.html" class="nav-link">Print buttons</a></li>
+										<li class="nav-item"><a href="datatable_extension_buttons_html5.html" class="nav-link">HTML5 buttons</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a href="datatable_extension_colvis.html" class="nav-link">Columns visibility</a></li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-file-spreadsheet"></i> <span>Handsontable</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Handsontable">
+								<li class="nav-item"><a href="handsontable_basic.html" class="nav-link">Basic configuration</a></li>
+								<li class="nav-item"><a href="handsontable_advanced.html" class="nav-link">Advanced setup</a></li>
+								<li class="nav-item"><a href="handsontable_cols.html" class="nav-link">Column features</a></li>
+								<li class="nav-item"><a href="handsontable_cells.html" class="nav-link">Cell features</a></li>
+								<li class="nav-item"><a href="handsontable_types.html" class="nav-link">Basic cell types</a></li>
+								<li class="nav-item"><a href="handsontable_custom_checks.html" class="nav-link">Custom &amp; checkboxes</a></li>
+								<li class="nav-item"><a href="handsontable_ac_password.html" class="nav-link">Autocomplete &amp; password</a></li>
+								<li class="nav-item"><a href="handsontable_search.html" class="nav-link">Search</a></li>
+								<li class="nav-item"><a href="handsontable_context.html" class="nav-link">Context menu</a></li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-versions"></i> <span>Responsive tables</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
+								<li class="nav-item"><a href="table_responsive.html" class="nav-link">Responsive basic tables</a></li>
+								<li class="nav-item"><a href="datatable_responsive.html" class="nav-link">Responsive data tables</a></li>
+							</ul>
+						</li>
+						<!-- /tables -->
+
+						<!-- Page kits -->
+						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Page kits</div> <i class="icon-menu" title="Page kits"></i></li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-grid6"></i> <span>General pages</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="General pages">
+								<li class="nav-item"><a href="general_feed.html" class="nav-link">Feed</a></li>
+								<li class="nav-item"><a href="general_embeds.html" class="nav-link">Embeds</a></li>
+								<li class="nav-item"><a href="general_faq.html" class="nav-link">FAQ page</a></li>
+								<li class="nav-item"><a href="general_knowledgebase.html" class="nav-link">Knowledgebase</a></li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Blog</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="blog_classic_v.html" class="nav-link">Classic vertical</a></li>
+										<li class="nav-item"><a href="blog_classic_h.html" class="nav-link">Classic horizontal</a></li>
+										<li class="nav-item"><a href="blog_grid.html" class="nav-link">Grid</a></li>
+										<li class="nav-item"><a href="blog_single.html" class="nav-link">Single post</a></li>
+										<li class="nav-item-divider"></li>
+										<li class="nav-item"><a href="blog_sidebar_left.html" class="nav-link">Left sidebar</a></li>
+										<li class="nav-item"><a href="blog_sidebar_right.html" class="nav-link">Right sidebar</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Timelines</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="timelines_left.html" class="nav-link">Left timeline</a></li>
+										<li class="nav-item"><a href="timelines_right.html" class="nav-link">Right timeline</a></li>
+										<li class="nav-item"><a href="timelines_center.html" class="nav-link">Centered timeline</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Gallery</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="gallery_grid.html" class="nav-link">Media grid</a></li>
+										<li class="nav-item"><a href="gallery_titles.html" class="nav-link">Media with titles</a></li>
+										<li class="nav-item"><a href="gallery_description.html" class="nav-link">Media with description</a></li>
+										<li class="nav-item"><a href="gallery_library.html" class="nav-link">Media library</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-wrench3"></i> <span>Service pages</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Service pages">
+								<li class="nav-item"><a href="service_sitemap.html" class="nav-link">Sitemap</a></li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Invoicing</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="invoice_template.html" class="nav-link">Invoice template</a></li>
+										<li class="nav-item"><a href="invoice_grid.html" class="nav-link">Invoice grid</a></li>
+										<li class="nav-item"><a href="invoice_archive.html" class="nav-link">Invoice archive</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Authentication</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="login_simple.html" class="nav-link">Simple login</a></li>
+										<li class="nav-item"><a href="login_advanced.html" class="nav-link">More login info</a></li>
+										<li class="nav-item"><a href="login_registration.html" class="nav-link">Simple registration</a></li>
+										<li class="nav-item"><a href="login_registration_advanced.html" class="nav-link">More registration info</a></li>
+										<li class="nav-item"><a href="login_unlock.html" class="nav-link">Unlock user</a></li>
+										<li class="nav-item"><a href="login_password_recover.html" class="nav-link">Reset password</a></li>
+										<li class="nav-item"><a href="login_hide_navbar.html" class="nav-link">Hide navbar</a></li>
+										<li class="nav-item"><a href="login_transparent.html" class="nav-link">Transparent box</a></li>
+										<li class="nav-item"><a href="login_background.html" class="nav-link">Background option</a></li>
+										<li class="nav-item"><a href="login_validation.html" class="nav-link">With validation</a></li>
+										<li class="nav-item"><a href="login_tabbed.html" class="nav-link">Tabbed form</a></li>
+										<li class="nav-item"><a href="login_modals.html" class="nav-link">Inside modals</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Error pages</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="error_403.html" class="nav-link">Error 403</a></li>
+										<li class="nav-item"><a href="error_404.html" class="nav-link">Error 404</a></li>
+										<li class="nav-item"><a href="error_405.html" class="nav-link">Error 405</a></li>
+										<li class="nav-item"><a href="error_500.html" class="nav-link">Error 500</a></li>
+										<li class="nav-item"><a href="error_503.html" class="nav-link">Error 503</a></li>
+										<li class="nav-item"><a href="error_offline.html" class="nav-link">Offline page</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-people"></i> <span>User pages</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="User pages">
+								<li class="nav-item"><a href="user_pages_list.html" class="nav-link">User list</a></li>
+								<li class="nav-item"><a href="user_pages_cards.html" class="nav-link">User cards</a></li>
+								<li class="nav-item"><a href="user_pages_profile.html" class="nav-link">Simple profile</a></li>
+								<li class="nav-item"><a href="user_pages_profile_tabbed.html" class="nav-link">Tabbed profile</a></li>
+								<li class="nav-item"><a href="user_pages_profile_cover.html" class="nav-link">Profile with cover</a></li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-cube3"></i> <span>Application pages</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Application pages">
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Task manager</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="task_manager_grid.html" class="nav-link">Task grid</a></li>
+										<li class="nav-item"><a href="task_manager_list.html" class="nav-link">Task list</a></li>
+										<li class="nav-item"><a href="task_manager_detailed.html" class="nav-link">Task detailed</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Inbox</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="mail_list.html" class="nav-link">Mail list</a></li>
+										<li class="nav-item"><a href="mail_list_detached.html" class="nav-link">Mail list (detached)</a></li>
+										<li class="nav-item"><a href="mail_read.html" class="nav-link">Read mail</a></li>
+										<li class="nav-item"><a href="mail_write.html" class="nav-link">Write mail</a></li>
+										<li class="nav-item-divider"></li>
+										<li class="nav-item"><a href="chat_layouts.html" class="nav-link">Chat layouts</a></li>
+										<li class="nav-item"><a href="chat_options.html" class="nav-link">Chat options</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Search</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="search_basic.html" class="nav-link">Basic search results</a></li>
+										<li class="nav-item"><a href="search_users.html" class="nav-link">User search results</a></li>
+										<li class="nav-item"><a href="search_images.html" class="nav-link">Image search results</a></li>
+										<li class="nav-item"><a href="search_videos.html" class="nav-link">Video search results</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Job search</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="job_list_cards.html" class="nav-link">Cards view</a></li>
+										<li class="nav-item"><a href="job_list_list.html" class="nav-link">List view</a></li>
+										<li class="nav-item"><a href="job_detailed.html" class="nav-link">Job detailed</a></li>
+										<li class="nav-item"><a href="job_apply.html" class="nav-link">Apply</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Learning</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="learning_list.html" class="nav-link">List view</a></li>
+										<li class="nav-item"><a href="learning_grid.html" class="nav-link">Grid view</a></li>
+										<li class="nav-item"><a href="learning_detailed.html" class="nav-link">Detailed course</a></li>
+									</ul>
+								</li>
+								<li class="nav-item nav-item-submenu">
+									<a href="#" class="nav-link">Ecommerce set</a>
+									<ul class="nav nav-group-sub">
+										<li class="nav-item"><a href="ecommerce_product_list.html" class="nav-link">Product list</a></li>
+										<li class="nav-item"><a href="ecommerce_product_grid.html" class="nav-link">Product grid</a></li>
+										<li class="nav-item"><a href="ecommerce_orders_history.html" class="nav-link">Orders history</a></li>
+										<li class="nav-item"><a href="ecommerce_customers.html" class="nav-link">Customers</a></li>
+										<li class="nav-item"><a href="ecommerce_pricing.html" class="nav-link">Pricing tables</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-atom2"></i> <span>Widgets</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Widgets">
+								<li class="nav-item"><a href="widgets_content.html" class="nav-link">Content widgets</a></li>
+								<li class="nav-item"><a href="widgets_stats.html" class="nav-link">Statistics widgets</a></li>
+								<li class="nav-item"><a href="widgets_menu.html" class="nav-link disabled">Menu widgets <span class="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
+								<li class="nav-item"><a href="widgets_form.html" class="nav-link disabled">Form widgets <span class="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
+							</ul>
+						</li>
+						<!-- /page kits -->
+						<!--student sidbar end-->
+						<!--all authenticate sidbar end-->
+					{% endif %}
+					</ul>
+				</div>
+				<!-- /main navigation -->
+
+	</div>
+	<!-- /sidebar content -->
+			
+</div>
+<!-- /Main sidebar -->
