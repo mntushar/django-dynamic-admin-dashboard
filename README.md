@@ -11,3 +11,9 @@
 If you need more information please visit the video link.
 
 Video link: https://youtu.be/ubW4w5zwkdc
+
+
+#Login information:
+
+id:admin@gmail.com
+pass:testadmin123
